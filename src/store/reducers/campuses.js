@@ -6,7 +6,15 @@ Depending on the Action object, the Reducer updates the State and return the new
 It also defines the State and its default initial value.
 ================================================== */
 import * as at from "../actions/actionTypes";  // Import Action Types ("at" keyword for Action Type)
-
+const initialState = {
+   current: {
+      name: '',
+      description: '',
+      address: '',
+      image: null,
+      editing: false
+   }
+}
 // REDUCER:
 const allCampuses = (state = [], action) => {  // Empty array as default Initial State
   switch (action.type) {
