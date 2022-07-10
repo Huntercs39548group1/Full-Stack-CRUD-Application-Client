@@ -6,7 +6,15 @@ Depending on the Action object, the Reducer updates the State and return the new
 It also defines the State and its default initial value.
 ================================================== */
 import { FETCH_CAMPUS } from "../actions/actionTypes";  // Import Action Type
-
+const initialState = {
+  current: {
+     name: '',
+     description: '',
+     address: '',
+     image: null,
+     editing: false
+  }
+}
 // Define default Initial State
 const initialState = {
   students: [],  // Empty students array

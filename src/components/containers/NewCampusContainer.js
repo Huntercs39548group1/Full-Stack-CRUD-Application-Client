@@ -41,7 +41,7 @@ class NewCampusContainer extends Component {
     let campus = {
         name: this.state.name,
         address: this.state.address,
-        campusID: this.state.campusID
+        campusId: this.state.campusID
     };
     
     // Add new student in back-end database
@@ -51,14 +51,14 @@ class NewCampusContainer extends Component {
     this.setState({
       name: "", 
       description: "", 
-      campusID: null, 
+      campusId: null, 
       redirect: true, 
       redirectId: newCampus.id
     });
   }
 
   // Unmount when the component is being removed from the DOM:
-  componentWillUnmount() {
+  componentWillUnmount() { 
       this.setState({redirect: false, redirectId: null});
   }
 
@@ -66,7 +66,7 @@ class NewCampusContainer extends Component {
   render() {
     // Redirect to new student's page after submit
     if(this.state.redirect) {
-      return (<Redirect to={`/student/${this.state.redirectId}`}/>)
+      return (<Redirect to={`/campus/${this.state.redirectId}`}/>)
     }
 
     // Display the input form via the corresponding View component
