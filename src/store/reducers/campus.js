@@ -12,13 +12,14 @@ const initialState = {
      description: '',
      address: '',
      image: null,
+     students: [],
      editing: false
   }
 }
 // Define default Initial State
-const initialState = {
-  students: [],  // Empty students array
-};
+// const initialState = {
+//   students: [],  // Empty students array
+// };
 
 // REDUCER:
 const campus = (state = initialState, action) => {  // Use "initialState" as default Initial State
