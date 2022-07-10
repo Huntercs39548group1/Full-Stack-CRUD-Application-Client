@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.header{
+  background-color: rgb(184, 94, 94);
+  color: white;
+  height: 80px;
+  padding: 15px;
+}
