@@ -41,6 +41,7 @@ class NewCampusContainer extends Component {
     let campus = {
         name: this.state.name,
         address: this.state.address,
+        description: this.state.description,
         campusId: this.state.campusID
     };
     
@@ -48,13 +49,15 @@ class NewCampusContainer extends Component {
     let newCampus = await this.props.addCampus(campus);
 
     // Update state, and trigger redirect to show the new student
-    this.setState({
-      name: "", 
-      description: "", 
-      campusId: null, 
-      redirect: true, 
-      redirectId: newCampus.id
-    });
+    if (newCampus){
+      this.setState({
+        name: "", 
+        description: "", 
+        campusID: null, 
+        redirect: true, 
+        redirectId: newCampus.id
+      });
+    }
   }
 
   // Unmount when the component is being removed from the DOM:
