@@ -22,7 +22,8 @@ const AllCampusesView = (props) => {
     <div>
       <h1>All Campuses</h1>
 
-      {props.allCampuses.map((campus) => (
+      {props.allCampuses.sort((a,b) => {
+        return a.id - b.id}).map((campus) => (
         <div key={campus.id}>
           <Link to={`/campus/${campus.id}`}>
             <h2>{campus.name}</h2>
