@@ -8,15 +8,15 @@ It also defines the State and its default initial value.
 import * as at from "../actions/actionTypes";  // Import Action Types ("at" keyword for Action Type)
 import { ADD_CAMPUS, DELETE_CAMPUS } from "../actions/actionTypes";  // Import Action Type
 
-const initialState = {
-   current: {
-      name: '',
-      description: '',
-      address: '',
-      image: null,
-      editing: false
-   }
-}
+// const initialState = {
+//    current: {
+//       name: '',
+//       description: '',
+//       address: '',
+//       image: null,
+//       editing: false
+//    }
+// }
 // REDUCER:
 const allCampuses = (state = [], action) => {  // Empty array as default Initial State
   switch (action.type) {
@@ -26,6 +26,7 @@ const allCampuses = (state = [], action) => {  // Empty array as default Initial
         return [...state, action.payload]
       case DELETE_CAMPUS:
         return state.filter(campus => campus.id !== action.payload);
+      
     default:
       // If the Reducer doesn't recognize the Action Type, returns the previous (current) State unchanged.
       return state;
