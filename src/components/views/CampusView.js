@@ -19,7 +19,7 @@ const CampusView = (props) => {
         </button>}
         {<button onClick={() => editCampus(campus.id)}>Edit Campus
         </button>}
-      {/*campus.students.map( (student) => {
+      {campus.students.map( (student) => {
         let name = student.firstname + " " + student.lastname;
         return (
           <div key={student.id}>
@@ -28,7 +28,7 @@ const CampusView = (props) => {
             </Link>             
           </div>
         );
-      })*/}
+      })}
       
     </div>
   );
