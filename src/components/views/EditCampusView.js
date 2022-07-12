@@ -7,6 +7,7 @@ It constructs a React component to display the new student page.
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { campus } from '../../store/reducers';
 
 // Create styling for the input form
 const useStyles = makeStyles( () => ({
@@ -41,7 +42,7 @@ const EditCampusView = (props) => {
   // Render a New Student view with an input form
   return (
     <div>
-  
+    <h1>{campus}</h1>
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
