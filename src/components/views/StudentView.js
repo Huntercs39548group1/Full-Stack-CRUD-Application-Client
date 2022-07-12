@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /*==================================================
 StudentView.js
 
@@ -11,7 +13,7 @@ const StudentView = (props) => {
   return (
     <div>
       <h1>{student.firstname + " " + student.lastname}</h1>
-      <h3>{student.campus.name}</h3>
+       <h3><Link to={`/campus/:id`}>{student.campus.name}</Link></h3>
     </div>
   );
 
