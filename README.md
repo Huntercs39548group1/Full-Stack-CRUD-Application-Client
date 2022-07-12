@@ -5,6 +5,8 @@ Team members:
 - Shi Wei Zheng - dive0
 - Sergey Kisselev - skissele
 - Junior Tenezaca - TJunior1323
+ ## This is client side of the project
+   Implement with back-end code [[Full-Stack-CRUD-Application-Server](https://github.com/Huntercs39548group1/Full-Stack-CRUD-Application-Server)]
 
 ### Use the following steps to set up and run the client (front-end) application on your local machine
 1.	Download the GitHub repository ZIP file to your local machine and unzip it.
