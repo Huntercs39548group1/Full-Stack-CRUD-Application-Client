@@ -56,21 +56,21 @@ const EditCampusView = (props) => {
             <br/>
             <br/>
 
-{            
-  // <label style= {{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
-//             <input type="text" name="image" placeholder="OPTIONAL" onChange ={(e) => handleChange(e)} />
-//             <br/>
-//             <br/>
+        
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
+            <input type="text" name="image" value={campus.url} onChange ={(e) => handleChange(e)} />
+            <br/>
+            <br/>
 
-//             <label style={{color:'#11153e', fontWeight: 'bold'}}>Address: </label>
-//             <input type="text" name="address" onChange={(e) => handleChange(e)} />
-//             <br/>
-//             <br/>
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Address: </label>
+            <input type="text" name="address" value={campus.address} onChange={(e) => handleChange(e)} />
+            <br/>
+            <br/>
 
-//             <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-//             <input  size="50"maxlength="500"type="text" name="description"  placeholder="Enter a description" onChange={(e) => handleChange(e)} />
-//             <br/>
-}
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
+            <input  size="50"maxlength="500"type="text" value={campus.description}name="description"  placeholder="Enter a description" onChange={(e) => handleChange(e)} />
+            <br/>
+
             <br/>
 
             <Button variant="contained" color="primary" type="submit">
