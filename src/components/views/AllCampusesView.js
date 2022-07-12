@@ -16,7 +16,7 @@ const AllCampusesView = (props) => {
         <button>Add New campus</button>
       </Link></div>);
   }
-  const { deleteCampus} = props;
+  const { deleteCampus, editCampus} = props;
   // If there is at least one campus, render All Campuses view 
   return (
     <div>
@@ -32,6 +32,8 @@ const AllCampusesView = (props) => {
           <p>{campus.address}</p>
           <p>{campus.description}</p>
           {<button onClick={() => deleteCampus(campus.id)}>Delete Campus
+        </button>}
+        {<button onClick={() => editCampus(campus.id)}>Edit Campus
         </button>}
           <hr/>
         </div>

@@ -59,7 +59,7 @@ class NewCampusContainer extends Component {
       });
     }
   }
-
+ 
   // Unmount when the component is being removed from the DOM:
   componentWillUnmount() { 
       this.setState({redirect: false, redirectId: null});

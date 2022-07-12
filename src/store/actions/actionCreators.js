@@ -19,10 +19,10 @@ export const addCampus = (campus) => {
   };
 };
 
-export const deleteCampus = (campuses) => {
+export const deleteCampus = (campusId) => {
   return {
     type: at.DELETE_CAMPUS,
-    payload: campuses,
+    payload: campusId,
   };
 };
 
