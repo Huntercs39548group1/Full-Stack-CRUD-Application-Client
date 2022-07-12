@@ -10,7 +10,6 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import campus from "../../store/reducers/campus";
-import { render } from '@testing-library/react';
 import { editCampusThunk } from '../../store/thunks';
 import EditCampusView from '../views/EditCampusView';
 class EditCampusContainer extends Component {
@@ -58,6 +57,27 @@ class EditCampusContainer extends Component {
           });
         }
       }
+      // Unmount when the component is being removed from the DOM:
+  componentWillUnmount() { 
+    this.setState({redirect: false, redirectId: null});
+}   
+    render() {
+    // Redirect to new student's page after submit
+    if(this.state.redirect) {
+      return (<Redirect to={`/campus/${this.state.redirectId}`}/>)
+    }
+
+    // Display the input form via the corresponding View component
+    return (
+      <div>
+        <Header />
+        <EditCampusView 
+          handleChange = {this.handleChange} 
+          handleSubmit={this.handleSubmit}      
+        />
+      </div>          
+    );
+  }
 }
 
 // The following input argument is passed to the "connect" function used by "NewStudentContainer" component to connect to Redux Store.
