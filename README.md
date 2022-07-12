@@ -1,5 +1,5 @@
 # client-starter-code
-This repository is created by group Progress for the server of the final project.  
+This repository is created by group Progress for the front-end of the final project.  
 Team members: 
 - Jinyi Tan - remit233
 - Shi Wei Zheng - dive0
