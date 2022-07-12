@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 /*==================================================
 StudentView.js
 
@@ -8,12 +6,15 @@ It constructs a React component to display the single student view page.
 ================================================== */
 const StudentView = (props) => {
   const { student } = props;
+  console.log({student})
 
   // Render a single Student view 
   return (
     <div>
-      <h1>{student.firstname + " " + student.lastname}</h1>
-       <h3><Link to={`/campus/:id`}>{student.campus.name}</Link></h3>
+      <h1>{student?.firstname + " " + student?.lastname}</h1>
+      <h2>Email: {student.email}</h2>
+      <h4>GPA: {student.gpa}</h4>
+      <h3>{student?.campus?.name}</h3>
     </div>
   );
 
