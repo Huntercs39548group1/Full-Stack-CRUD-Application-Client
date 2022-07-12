@@ -71,16 +71,20 @@ class EditCampusContainer extends Component {
               name: this.state.name,
               address: this.state.address,
               description: this.state.description,
+              image: this.state.image,
               campusId: this.state.campusID
           };
-          this.props.editCampus(campus.id, updateinfo);
-          this.setState({
+          let edited = this.props.editCampus(campus.id, updateinfo);
+          if(edited)
+          {this.setState({
             name:"",
             address: "",
             description: "",
+            image: "",
             redirect: true,
             redirectID: campus.id
           });
+        }
       };
 //       // Unmount when the component is being removed from the DOM:
   componentWillUnmount() { 
