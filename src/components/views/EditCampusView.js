@@ -52,23 +52,23 @@ const EditCampusView = (props) => {
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>Name: </label>
-            <input type="text" name="name" value={campus.name} onChange ={(e) => handleChange(e)} />
+            <input type="text" name="name" defaultValue={campus.name} onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
 
         
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
-            <input type="text" name="image" value={campus.url} onChange ={(e) => handleChange(e)} />
+            <input type="text" name="image" defaultValue={campus.url} onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Address: </label>
-            <input type="text" name="address" value={campus.address} onChange={(e) => handleChange(e)} />
+            <input type="text" name="address" defaultValue={campus.address} onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-            <input  size="50"maxlength="500"type="text" value={campus.description}name="description"  placeholder="Enter a description" onChange={(e) => handleChange(e)} />
+            <input  size="50"maxlength="500"type="text" defaultValue={campus.description}name="description"  placeholder="Enter a description" onChange={(e) => handleChange(e)} />
             <br/>
 
             <br/>
