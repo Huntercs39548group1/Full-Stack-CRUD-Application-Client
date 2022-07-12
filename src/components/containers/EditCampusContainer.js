@@ -31,8 +31,10 @@ class EditCampusContainer extends Component {
             description: campus.description,
             campusID: campus.campusID,
             redirect: false,
-            redirectID: null
+            redirectID: campus.id
         };
+        this.id = props.match.params.id
+
     }
       // Capture input data when it is entered
   handleChange = event => {
@@ -65,30 +67,29 @@ class EditCampusContainer extends Component {
         //     redirectId: editCampus.id
         //   });
         // }
-        const update = {
+        const updateinfo = {
               name: this.state.name,
               address: this.state.address,
               description: this.state.description,
               campusId: this.state.campusID
           };
-          this.props.editCampus(this.id, update);
+          this.props.editCampus(campus.id, updateinfo);
           this.setState({
             name:"",
             address: "",
             description: "",
             redirect: true,
-            redirectID: this.state.campusID
+            redirectID: campus.id
           });
-          this.props.history.push('/campus')
       };
 //       // Unmount when the component is being removed from the DOM:
-//   componentWillUnmount() { 
-//     this.setState({redirect: false, redirectId: null});
-// }   
+  componentWillUnmount() { 
+    this.setState({redirect: false, redirectId: null});
+}   
     render() {
-    // Redirect to new student's page after submit
+    // Redirect to all campuses's page after submit
     if(this.state.redirect) {
-      return (<Redirect to={`/campus/${this.state.redirectId}`}/>)
+      return (<Redirect to={`/campuses`}/>)
     }
 
     // Display the input form via the corresponding View component
@@ -117,7 +118,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
     return({
       fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
-        eidtCampus: (campus) => dispatch(editCampusThunk(campus)),
+      editCampus:  (campus) => dispatch(editCampusThunk(campus)),
     })
 }
 export default connect(mapState, mapDispatch)(EditCampusContainer);
