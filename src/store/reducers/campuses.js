@@ -27,9 +27,9 @@ const allCampuses = (state = [], action) => {  // Empty array as default Initial
       case at.DELETE_CAMPUS:
         return state.filter(campus => campus.id !== action.payload);
         case at.EDIT_CAMPUS:
-          return state.map(campus => {
+          return state.map(editcampus => {
             return ( 
-              campus.id === action.payload.id ? action.payload : campus
+              editcampus.id === action.payload.id ? action.payload : editcampus
             );
           });
       

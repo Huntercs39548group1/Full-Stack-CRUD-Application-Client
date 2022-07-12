@@ -7,7 +7,6 @@ It constructs a React component to display the new student page.
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { campus } from '../../store/reducers';
 
 // Create styling for the input form
 const useStyles = makeStyles( () => ({
@@ -38,11 +37,12 @@ const useStyles = makeStyles( () => ({
 const EditCampusView = (props) => {
   const {handleChange, handleSubmit } = props;
   const classes = useStyles();
+  const {campus} = props;
 
   // Render a New Student view with an input form
   return (
     <div>
-    <h1>Edit Campus</h1>
+    <h1>{campus.name}</h1>
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
@@ -52,23 +52,25 @@ const EditCampusView = (props) => {
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>Name: </label>
-            <input type="text" name="name" onChange ={(e) => handleChange(e)} />
+            <input type="text" name="name" value={campus.name} onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
 
+        
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
-            <input type="text" name="image" placeholder="OPTIONAL" onChange ={(e) => handleChange(e)} />
+            <input type="text" name="image" value={campus.url} onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Address: </label>
-            <input type="text" name="address" onChange={(e) => handleChange(e)} />
+            <input type="text" name="address" value={campus.address} onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-            <input  size="50"maxlength="500"type="text" name="description"  placeholder="Enter a description" onChange={(e) => handleChange(e)} />
+            <input  size="50"maxlength="500"type="text" value={campus.description}name="description"  placeholder="Enter a description" onChange={(e) => handleChange(e)} />
             <br/>
+
             <br/>
 
             <Button variant="contained" color="primary" type="submit">
