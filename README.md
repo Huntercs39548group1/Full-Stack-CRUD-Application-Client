@@ -1,6 +1,10 @@
 # client-starter-code
-
-This repository is the client (front-end) starter code for Final Project (CRUD Application).
+This repository is created by group Progress for the server of the final project.  
+Team members: 
+- Jinyi Tan - remit233
+- Shi Wei Zheng - dive0
+- Sergey Kisselev - skissele
+- Junior Tenezaca - TJunior1323
 
 ### Use the following steps to set up and run the client (front-end) application on your local machine
 1.	Download the GitHub repository ZIP file to your local machine and unzip it.
