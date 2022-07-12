@@ -19,6 +19,7 @@ import {  DELETE_CAMPUS, EDIT_CAMPUS, FETCH_CAMPUS } from "../actions/actionType
 // Define default Initial State
 const initialState = {
   students: [],  // Empty students array
+  campus: [],
 };
 
 // REDUCER:
@@ -27,7 +28,7 @@ const campus = (state = initialState, action) => {  // Use "initialState" as def
     case FETCH_CAMPUS:
       return action.payload;
     case DELETE_CAMPUS:
-      return state.filter(campus => campus.id !== action.payload);
+      return {...state, campus: state.campus.filter((campusId) => campusId !== action.payload)};
     case EDIT_CAMPUS:
       return state.map(campus => {
         return ( 
