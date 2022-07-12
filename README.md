@@ -1,4 +1,4 @@
-# client-FrontEnd Code
+# Full-Stack-CRUD-Application-Client
 This repository is created by group Progress for the front-end of the final project.  
 Team members: 
 - Jinyi Tan - remit233
