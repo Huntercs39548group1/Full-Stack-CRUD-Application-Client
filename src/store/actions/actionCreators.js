@@ -27,10 +27,11 @@ export const deleteCampus = (campusId) => {
 };
 
 
-export const editCampus = (campus) => {
+export const editCampus = (campus, updateinfo) => {
   return {
     type: at.EDIT_CAMPUS,
     payload: campus,
+    updateinfo: updateinfo
   };
 };
 

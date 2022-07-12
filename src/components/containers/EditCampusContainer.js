@@ -71,7 +71,7 @@ class EditCampusContainer extends Component {
               description: this.state.description,
               campusId: this.state.campusID
           };
-          this.props.editCampusThunk(this.id, update);
+          this.props.editCampus(this.id, update);
           this.setState({
             name:"",
             address: "",
@@ -79,7 +79,7 @@ class EditCampusContainer extends Component {
             redirect: true,
             redirectID: this.state.campusID
           });
-          
+          this.props.history.push('/campus')
       };
 //       // Unmount when the component is being removed from the DOM:
 //   componentWillUnmount() { 
@@ -109,8 +109,7 @@ class EditCampusContainer extends Component {
 // The "mapState" is called when the Store State changes, and it returns a data object of "campus".
 const mapState = (state) => {
   return {
-    campus: state.campus,  // Get the State object from Reducer "campus"
-  };
+    campus: state.campus};
 };
 // The following input argument is passed to the "connect" function used by "NewStudentContainer" component to connect to Redux Store.
 // The "mapDispatch" argument is used to dispatch Action (Redux Thunk) to Redux Store.
