@@ -51,7 +51,7 @@ class NewStudentContainer extends Component {
     let newStudent = await this.props.addStudent(student);
 
     // Update state, and trigger redirect to show the new student
-    this.setState({
+    if(newStudent){this.setState({
       firstname: "", 
       lastname: "", 
       email: "",
@@ -59,7 +59,9 @@ class NewStudentContainer extends Component {
       campusId: null, 
       redirect: true, 
       redirectId: newStudent.id
-    });
+    });}else{
+      alert("Please enter valid campus id");
+    }
   }
 
   // Unmount when the component is being removed from the DOM:
