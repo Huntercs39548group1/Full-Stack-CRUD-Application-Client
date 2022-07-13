@@ -13,11 +13,11 @@ const HomePageView = () => {
     <div >
       <h1>Home Page</h1>
 
-      <h1 class="header">View Campuses
+      <h1 className="header">View Campuses
       <br>
       </br>
       <Link to={'/campuses'}>
-      <Button variant="contained" color="black">
+      <Button variant="contained">
         Clink Here!
       </Button>
     </Link>
@@ -25,10 +25,10 @@ const HomePageView = () => {
     <img src="https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=2000" alt="campuses" width="150" height="100"/>
     </h1>
 
-    <h1 class="header">View Students
+    <h1 className="header">View Students
     <br></br>
     <Link to={'/students'}>
-    <Button variant="contained" color="black">
+    <Button variant="contained">
       Clink Here!
     </Button>
   </Link>

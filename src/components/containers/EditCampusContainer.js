@@ -54,13 +54,12 @@ class EditCampusContainer extends Component {
     // Take action after user click the submit button
     handleSubmit = async event => {
         event.preventDefault();  // Prevent browser reload/refresh after submit.
-    
 
         let updateinfo = {
               name: this.state.name,
               address: this.state.address,
               description: this.state.description,
-              imageUrl: this.state.imageURL,
+              imageUrl: this.state.image,
               id: window.location.pathname.slice(-1)
           };
         await this.props.editCampus(updateinfo);
