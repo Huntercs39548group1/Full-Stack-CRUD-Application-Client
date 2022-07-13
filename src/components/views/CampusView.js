@@ -10,7 +10,7 @@ const CampusView = (props) => {
     const { campus } = props;
     const { deleteCampus } = props;
 
-    let none = () => {
+    let noStudent = () => {
         if (campus.students.length === 0) {
             return (
                 <div>
@@ -36,7 +36,7 @@ const CampusView = (props) => {
                     <button>Edit Campus</button>
                 </Link>
             </div>
-            {none()}
+            {noStudent()}
             {campus.students.map((student) => {
                 let name = student.firstname + " " + student.lastname;
                 return (
