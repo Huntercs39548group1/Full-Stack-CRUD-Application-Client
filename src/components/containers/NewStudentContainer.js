@@ -56,7 +56,7 @@ class NewStudentContainer extends Component {
       lastname: "", 
       email: "",
       gpa: 0,
-      campusId: null, 
+      campusId: "", 
       redirect: true, 
       redirectId: newStudent.id
     });}else{

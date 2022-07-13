@@ -17,6 +17,15 @@ const AllCampusesView = (props) => {
       </Link></div>);
   }
   const { deleteCampus} = props;
+
+  let image = (college) => {
+    if (college.imageUrl !== "No URL provided") {
+      return (
+        <img src={college.imageUrl} alt="Campus" width="500" height="300"/>
+      );
+    }
+  }
+  
   // If there is at least one campus, render All Campuses view 
   return (
     <div>
@@ -28,10 +37,12 @@ const AllCampusesView = (props) => {
           <Link to={`/campus/${campus.id}`}>
             <h2>{campus.name}</h2>
           </Link>
+          {image(campus)}
+          {/* <img src={campus.imageUrl} alt="Campus" width="500" height="300"/> */}
           <h4>campus id: {campus.id}</h4>
           <p>{campus.address}</p>
           <p>{campus.description}</p>
-          <img>{campus.image}</img>
+          
         
           {<button onClick={() => deleteCampus(campus.id)}>Delete Campus
         </button>}
