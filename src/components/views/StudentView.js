@@ -44,6 +44,8 @@ const StudentView = (props) => {
                     Delete
                 </button>
             </Link>
+            {<Link to={`/editstudent/${student.id}`}><button>Edit Student
+        </button></Link>}
         </div>
     );
 };
