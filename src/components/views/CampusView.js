@@ -51,6 +51,7 @@ const CampusView = (props) => {
                         <Link to={`/student/${student.id}`}>
                             <h2>{name}</h2>
                         </Link>
+                        <button>Unenroll</button>
                     </div>
                 );
             })}
