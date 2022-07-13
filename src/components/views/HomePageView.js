@@ -22,7 +22,7 @@ const HomePageView = () => {
       </Button>
     </Link>
     <br></br><br></br>
-    <img src="https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=2000"width="150" height="100"/>
+    <img src="https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=2000" alt="campuses" width="150" height="100"/>
     </h1>
 
     <h1 class="header">View Students
@@ -33,7 +33,7 @@ const HomePageView = () => {
     </Button>
   </Link>
   <br></br><br></br>
-  <img src="https://pic.onlinewebfonts.com/svg/img_150030.png"width="150" height="100"/>
+  <img src="https://pic.onlinewebfonts.com/svg/img_150030.png" alt="students" width="150" height="100"/>
   
   </h1>
     </div>
