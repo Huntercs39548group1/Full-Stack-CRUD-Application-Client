@@ -8,14 +8,35 @@ const StudentView = (props) => {
   const { student } = props;
   console.log({student})
 
+  let college = () => {
+    if (student.campusId === null) {
+      return (
+        <h3>Not enrolled in any campus</h3>
+      );
+    }
+    else {
+      return (
+        <h3>Enrolled in {student.campus.name}</h3>
+      );
+    }
+  }
+
+  let images = () => {
+    if (student.imageUrl !== "No URL provided") {
+      return (
+        <img src={student.imageUrl} alt="student" width="200" />
+      );
+    }
+  }
+
   // Render a single Student view 
   return (
     <div>
       <h1>{student?.firstname + " " + student?.lastname}</h1>
-      <img src={student.imageUrl} alt="image" width="200" />
+      {images()}
       <h2>Email: {student.email}</h2>
       <h4>GPA: {student.gpa}</h4>
-      <h3>{student?.campus?.name}</h3>
+      {college()}
     </div>
   );
 
