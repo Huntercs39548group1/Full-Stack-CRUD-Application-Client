@@ -32,7 +32,7 @@ class EditCampusContainer extends Component {
       };
   }
   componentDidMount() {
-    // Get campus ID from URL (API link)
+    // Get stuednts ID from URL (API link)
     this.props.fetchCampus(window.location.pathname.slice(-1));
         this.setState({
       name: this.props.campus.name,
@@ -74,7 +74,7 @@ class EditCampusContainer extends Component {
           });
         
       };
-//       // Unmount when the component is being removed from the DOM:
+      // Unmount when the component is being removed from the DOM:
   componentWillUnmount() { 
     this.setState({redirect: false, redirectId: null});
 }   
