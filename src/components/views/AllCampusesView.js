@@ -31,7 +31,7 @@ const AllCampusesView = (props) => {
           <h4>campus id: {campus.id}</h4>
           <p>{campus.address}</p>
           <p>{campus.description}</p>
-          <img>{campus.image}</img>
+          <img alt="">{campus.image}</img>
         
           {<button onClick={() => deleteCampus(campus.id)}>Delete Campus
         </button>}

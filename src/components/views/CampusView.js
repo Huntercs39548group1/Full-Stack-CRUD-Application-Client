@@ -26,6 +26,16 @@ const CampusView = (props) => {
             <h1>{campus.name}</h1>
             <p>{campus.address}</p>
             <p>{campus.description}</p>
+            <div>
+                <Link to={`/campuses`}>
+                    <button onClick={() => deleteCampus(campus.id)}>
+                        Delete Campus
+                    </button>
+                </Link>
+                <Link to={`/editcampus/${campus.id}`}>
+                    <button>Edit Campus</button>
+                </Link>
+            </div>
             {none()}
             {campus.students.map((student) => {
                 let name = student.firstname + " " + student.lastname;
@@ -37,13 +47,9 @@ const CampusView = (props) => {
                     </div>
                 );
             })}
-            <div>
-                <Link to={`/campuses`}>
-                    <button onClick={() => deleteCampus(campus.id)}>
-                        Delete Campus
-                    </button>
-                </Link>
-            </div>
+            <Link to={`/newstudent`}>
+                <button>Add New Student</button>
+            </Link>
         </div>
     );
 };
