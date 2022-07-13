@@ -19,11 +19,18 @@ const CampusView = (props) => {
             );
         }
     };
-
+    let image = (college) => {
+        if (college.imageUrl !== "No URL provided") {
+          return (
+            <img src={college.imageUrl} alt="Campus" width="500" height="300"/>
+          );
+        }
+      }
     // Render a single Campus view with list of its students
     return (
         <div>
             <h1>{campus.name}</h1>
+            {image(campus)}
             <p>{campus.address}</p>
             <p>{campus.description}</p>
             <div>
