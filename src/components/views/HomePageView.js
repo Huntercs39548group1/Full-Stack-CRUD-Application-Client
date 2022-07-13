@@ -14,12 +14,16 @@ const HomePageView = () => {
       <h1>Home Page</h1>
 
       <h1 class="header">View Campuses
-      <br></br>
+      <br>
+      </br>
       <Link to={'/campuses'}>
       <Button variant="contained" color="black">
         Clink Here!
       </Button>
-    </Link></h1>
+    </Link>
+    <br></br><br></br>
+    <img src="https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=2000"width="150" height="100"/>
+    </h1>
 
     <h1 class="header">View Students
     <br></br>
@@ -27,7 +31,11 @@ const HomePageView = () => {
     <Button variant="contained" color="black">
       Clink Here!
     </Button>
-  </Link></h1>
+  </Link>
+  <br></br><br></br>
+  <img src="https://pic.onlinewebfonts.com/svg/img_150030.png"width="150" height="100"/>
+  
+  </h1>
     </div>
   );    
 }
