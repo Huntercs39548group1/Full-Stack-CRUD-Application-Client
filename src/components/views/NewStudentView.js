@@ -66,6 +66,11 @@ const NewStudentView = (props) => {
             <br/>
             <br/>
 
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
+            <input type="url" name="imageUrl" placeholder="OPTIONAL" onChange ={(e) => handleChange(e)} />
+            <br/>
+            <br/>
+
             <label style={{color:'#11153e', fontWeight: 'bold'}}>GPA: </label>
             <input type="number" name="gpa" step="0.01" min="0" max="4" onChange={(e) => handleChange(e)} />
             <br/>

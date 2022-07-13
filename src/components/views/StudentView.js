@@ -36,7 +36,7 @@ const StudentView = (props) => {
             <h1>{student?.firstname + " " + student?.lastname}</h1>
             {images()}
             <h2>Email: {student.email}</h2>
-            <h4>GPA: {student.gpa.toFixed([2])}</h4>
+            <h4>GPA: {student.gpa}</h4>
             {college()}
 
             <Link to={`/students`}>
