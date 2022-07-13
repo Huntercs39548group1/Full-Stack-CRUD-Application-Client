@@ -9,34 +9,43 @@ import Header from './Header';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import student from "../../store/reducers/campus";
 import { editStudentThunk } from '../../store/thunks';
-import EditStudentView from '../views/EditCampusView';
+import { EditStudentView } from '../views';
 import { fetchStudentThunk } from "../../store/thunks";
 
-// import {editCampus} from '../store/actions/actionCreators.js';
+// import {editStudent} from '../store/actions/actionCreators.js';
 
 class EditStudentContainer extends Component {
-   // Get the specific campus data from back-end database
-   componentDidMount() {
-    // Get campus ID from URL (API link)
-    // this.props.fetchStudent(this.props.match.params.id);
-  }
+   // Get the specific Student data from back-end database
+
     //Get Data from database
     constructor(props){
         super(props);
         this.state = {
-          firstname: student.firstname,
-          lastname: student.lastname,
-          email: student.email,
-          gpa: student.gpa,
-          campusId: student.campusId,
+          firstname: "",
+          lastname: "",
+          email: "",
+          gpa: 0.0,
+          campusId: null,
           redirect: false,
-          redirectID: student.id 
+          redirectID: null 
         };
-        this.id = props.match.params.id
 
     }
+    componentDidMount() {
+      // Get campus ID from URL (API link)
+      this.props.fetchStudent(window.location.pathname.slice(-1));
+          this.setState({
+            firstname: this.props.student.firstname,
+            lastname: this.props.student.lastname,
+            email: this.props.student.email,
+            gpa: this.props.student.gpa,
+            campusId: this.props.student.campusId,
+            redirect: false, 
+            redirectId: null
+          })
+        }
+  
       // Capture input data when it is entered
   handleChange = event => {
     this.setState({
@@ -49,31 +58,32 @@ class EditStudentContainer extends Component {
         event.preventDefault();  // Prevent browser reload/refresh after submit.
     
      
-        const updateinfo = {
+        let updateinfo = {
           firstname: this.state.firstname,
           lastname: this.state.lastname,
           email: this.state.email,
           gpa: this.state.gpa,
-          campusId: this.state.campusID
+          campusId: this.state.campusId,
+          id: window.location.pathname.slice(-1)
       };
-          let edited = this.props.editStudent(student.id, updateinfo);
-          if(edited)
-          {this.setState({
-            firstname:"",
-            lastname: "",
+         await this.props.editStudent(updateinfo);
+        this.setState({
+            firstname: "", 
+            lastname: "", 
             email: "",
             gpa: 0,
-            redirect: true,
-            redirectID: student.id
+            campusId: null, 
+            redirect: true, 
+            redirectId: window.location.pathname.slice(-1)
           });
-        }
+        
       };
 //       // Unmount when the component is being removed from the DOM:
   componentWillUnmount() { 
     this.setState({redirect: false, redirectId: null});
 }   
     render() {
-    // Redirect to all campuses's page after submit
+    // Redirect to all Studentes's page after submit
     if(this.state.redirect) {
       return (<Redirect to={`/student/${this.state.redirectId}`}/>)
     }
@@ -83,6 +93,8 @@ class EditStudentContainer extends Component {
       <div>
         <Header />
         <EditStudentView 
+          fetchStudent={this.props.fetchStudent}
+          editStudent={this.props.editStudent}
           student={this.props.student} 
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}      
@@ -91,9 +103,9 @@ class EditStudentContainer extends Component {
     );
   }
 }
-// The following 2 input arguments are passed to the "connect" function used by "CampusContainer" component to connect to Redux Store.
+// The following 2 input arguments are passed to the "connect" function used by "StudentContainer" component to connect to Redux Store.
 // 1. The "mapState" argument specifies the data from Redux Store that the component needs.
-// The "mapState" is called when the Store State changes, and it returns a data object of "campus".
+// The "mapState" is called when the Store State changes, and it returns a data object of "Student".
 const mapState = (state) => {
   return {
     student: state.student};
