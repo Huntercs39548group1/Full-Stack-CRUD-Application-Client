@@ -1,5 +1,5 @@
 /*==================================================
-NewCampusView.js
+NewStudentView.js
 
 The Views component is responsible for rendering web page with data provided by the corresponding Container component.
 It constructs a React component to display the new student page.
@@ -37,41 +37,46 @@ const useStyles = makeStyles( () => ({
 const EditStudentView = (props) => {
   const {handleChange, handleSubmit } = props;
   const classes = useStyles();
-  const {campus} = props;
+  const {student} = props;
 
   // Render a New Student view with an input form
   return (
     <div>
-    <h1>{campus.name}</h1>
+      <h1>{student.firstname} {student.lastname}</h1>
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
             <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-              Edit Campus
+              Edit Student
             </Typography>
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Name: </label>
-            <input type="text" name="name" defaultValue={campus.name} onChange ={(e) => handleChange(e)} />
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>First Name: </label>
+            <input type="text" name="firstname" defaultValue={student.firstname} onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
 
         
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
-            <input type="text" name="image" defaultValue={campus.url} onChange ={(e) => handleChange(e)} />
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Last Name: </label>
+            <input type="text" name="lastname" defaultValue={student.lastname} onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Address: </label>
-            <input type="text" name="address" defaultValue={campus.address} onChange={(e) => handleChange(e)} />
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Email : </label>
+            <input type="email" name="email" defaultValue={student.email} onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-            <input  size="50"maxlength="500"type="text" defaultValue={campus.description}name="description"  placeholder="Enter a description" onChange={(e) => handleChange(e)} />
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>GPA: </label>
+            <input type="number" name="gpa" defaultValue={student.gpa} step="0.01" min="0" max="4" onChange={(e) => handleChange(e)} />
+            <br/>
             <br/>
 
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
+            <input type="number" name="campusId" defaultValue={student.campusId} onChange={(e) => handleChange(e)} />
             <br/>
+            <br/>
+
 
             <Button variant="contained" color="primary" type="submit">
               Submit

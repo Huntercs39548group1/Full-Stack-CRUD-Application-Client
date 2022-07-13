@@ -20,13 +20,19 @@ class EditStudentContainer extends Component {
    // Get the specific campus data from back-end database
    componentDidMount() {
     // Get campus ID from URL (API link)
-    this.props.fetchStudent(this.props.match.params.id);
+    // this.props.fetchStudent(this.props.match.params.id);
   }
     //Get Data from database
     constructor(props){
         super(props);
         this.state = {
-            
+          firstname: student.firstname,
+          lastname: student.lastname,
+          email: student.email,
+          gpa: student.gpa,
+          campusId: student.campusId,
+          redirect: false,
+          redirectID: student.id 
         };
         this.id = props.match.params.id
 
@@ -44,12 +50,21 @@ class EditStudentContainer extends Component {
     
      
         const updateinfo = {
-              
-          };
-          let edited = this.props.editCampus( );
+          firstname: this.state.firstname,
+          lastname: this.state.lastname,
+          email: this.state.email,
+          gpa: this.state.gpa,
+          campusId: this.state.campusID
+      };
+          let edited = this.props.editStudent(student.id, updateinfo);
           if(edited)
           {this.setState({
-        
+            firstname:"",
+            lastname: "",
+            email: "",
+            gpa: 0,
+            redirect: true,
+            redirectID: student.id
           });
         }
       };
@@ -68,7 +83,7 @@ class EditStudentContainer extends Component {
       <div>
         <Header />
         <EditStudentView 
-          campus={this.props.campus} 
+          student={this.props.student} 
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}      
         />
@@ -81,14 +96,15 @@ class EditStudentContainer extends Component {
 // The "mapState" is called when the Store State changes, and it returns a data object of "campus".
 const mapState = (state) => {
   return {
-    campus: state.campus};
+    student: state.student};
 };
 // The following input argument is passed to the "connect" function used by "NewStudentContainer" component to connect to Redux Store.
 // The "mapDispatch" argument is used to dispatch Action (Redux Thunk) to Redux Store.
 // The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Store.
 const mapDispatch = (dispatch) => {
     return({
-      
+      fetchStudent: (id) => dispatch(fetchStudentThunk(id)),
+      editStudent:  (student) => dispatch(editStudentThunk(student)),
     })
 }
 export default connect(mapState, mapDispatch)(EditStudentContainer);
