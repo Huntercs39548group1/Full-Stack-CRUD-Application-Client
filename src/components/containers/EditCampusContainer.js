@@ -9,33 +9,41 @@ import Header from './Header';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import campus from "../../store/reducers/campus";
 import { editCampusThunk } from '../../store/thunks';
-import EditCampusView from '../views/EditCampusView';
+import { EditCampusView } from '../views';
 import { fetchCampusThunk } from "../../store/thunks";
 
 // import {editCampus} from '../store/actions/actionCreators.js';
 
 class EditCampusContainer extends Component {
    // Get the specific campus data from back-end database
-   componentDidMount() {
-    // Get campus ID from URL (API link)
-    this.props.fetchCampus(this.props.match.params.id);
-  }
+  
     //Get Data from database
     constructor(props){
-        super(props);
-        this.state = {
-            name: campus.name,
-            address: campus.address,
-            description: campus.description,
-            campusID: campus.campusID,
-            redirect: false,
-            redirectID: campus.id
-        };
-        this.id = props.match.params.id
-
-    }
+      super(props);
+      this.state = {
+        name: "", 
+        imageUrl: "https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=2000",
+        address: "",
+        description: null,
+        redirect: false, 
+        redirectId: null,
+        id: null
+      };
+  }
+  componentDidMount() {
+    // Get campus ID from URL (API link)
+    this.props.fetchCampus(window.location.pathname.slice(-1));
+        this.setState({
+      name: this.props.campus.name,
+      imageUrl:this.props.campus.imageUrl,
+      address: this.props.campus.address,
+      description: this.props.campus.description,
+      redirect: false, 
+      redirectId: null,
+      id: this.props.campus.id
+    })
+  }
       // Capture input data when it is entered
   handleChange = event => {
     this.setState({
@@ -47,44 +55,24 @@ class EditCampusContainer extends Component {
     handleSubmit = async event => {
         event.preventDefault();  // Prevent browser reload/refresh after submit.
     
-        // let campus = {
-        //     name: this.state.name,
-        //     address: this.state.address,
-        //     description: this.state.description,
-        //     campusId: this.state.campusID
-        // };
-        
-        // // Add new student in back-end database
-        // let editCampus = this.props.editCampus(campus);
-    
-        // // Update state, and trigger redirect to show the new student
-        // if (editCampus){
-        //   this.setState({
-        //     name: "", 
-        //     description: "", 
-        //     campusID: null, 
-        //     redirect: true, 
-        //     redirectId: editCampus.id
-        //   });
-        // }
-        const updateinfo = {
+
+        let updateinfo = {
               name: this.state.name,
               address: this.state.address,
               description: this.state.description,
-              image: this.state.image,
-              campusId: this.state.campusID
+              imageUrl: this.state.imageURL,
+              id: window.location.pathname.slice(-1)
           };
-          let edited = this.props.editCampus(campus.id, updateinfo);
-          if(edited)
-          {this.setState({
+        await this.props.editCampus(updateinfo);
+         this.setState({
             name:"",
-            address: "",
-            description: "",
-            image: "",
-            redirect: true,
-            redirectID: campus.id
+            imageUrl: "https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=2000",
+            address: null,
+          description: null,
+          redirect: true, 
+          redirectId: window.location.pathname.slice(-1)
           });
-        }
+        
       };
 //       // Unmount when the component is being removed from the DOM:
   componentWillUnmount() { 
@@ -93,7 +81,7 @@ class EditCampusContainer extends Component {
     render() {
     // Redirect to all campuses's page after submit
     if(this.state.redirect) {
-      return (<Redirect to={`/campuses`}/>)
+      return (<Redirect to={`/campus/${this.state.redirectId}`}/>)
     }
 
     // Display the input form via the corresponding View component
@@ -101,6 +89,8 @@ class EditCampusContainer extends Component {
       <div>
         <Header />
         <EditCampusView 
+        fetchCampus={this.props.fetchCampus}
+        editCampus={this.props.editCampus}  
           campus={this.props.campus} 
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}      
