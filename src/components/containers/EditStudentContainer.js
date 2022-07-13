@@ -25,10 +25,7 @@ class EditStudentContainer extends Component {
           firstname: "",
           lastname: "",
           email: "",
-<<<<<<< HEAD
-=======
           imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
->>>>>>> f2aae7a25a49da86b906897eba524dfabcc699bc
           gpa: 0.0,
           campusId: null,
           redirect: false,
@@ -43,10 +40,7 @@ class EditStudentContainer extends Component {
             firstname: this.props.student.firstname,
             lastname: this.props.student.lastname,
             email: this.props.student.email,
-<<<<<<< HEAD
-=======
             imageUrl: this.props.student.imageUrl,
->>>>>>> f2aae7a25a49da86b906897eba524dfabcc699bc
             gpa: this.props.student.gpa,
             campusId: this.props.student.campusId,
             redirect: false, 
