@@ -8,7 +8,7 @@ If needed, it also defines the component's "connect" function.
 import Header from "./Header";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCampusThunk, deleteCampusThunk } from "../../store/thunks";
+import { fetchCampusThunk, deleteCampusThunk, editCampusThunk } from "../../store/thunks";
 
 import { CampusView } from "../views";
 
@@ -27,6 +27,7 @@ class CampusContainer extends Component {
                 <CampusView
                     campus={this.props.campus}
                     deleteCampus={this.props.deleteCampus}
+                    editCampus ={this.props.editCampus}
                 />
             </div>
         );
@@ -47,6 +48,7 @@ const mapDispatch = (dispatch) => {
     return {
         fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
         deleteCampus: (campusID) => dispatch(deleteCampusThunk(campusID)),
+        editcampus: (campusID) => dispatch(editCampusThunk(campusID)),
     };
 };
 
