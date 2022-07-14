@@ -52,16 +52,20 @@ const CampusView = (props) => {
             {campus.students.map((student) => {
                 let name = student.firstname + " " + student.lastname;
                 return (
+                    <table border="2px"class="center" >
+                    <tr>
+                    <th>Student</th>
+                    
+                    </tr>
                     <div key={student.id}>
-                        <Link to={`/student/${student.id}`}>
-                            <h2>{name}</h2>
+                    <tr><Link to={`/student/${student.id}`}>
+                        <h2>{name}</h2>
                         </Link>
-                        <Link to={`/campuses`}>
-                            <button onClick={() => deleteStudent(student.id)}>
-                                Unenroll
-                            </button>
-                        </Link>
+                        </tr>
                     </div>
+                    <Link to={`/campuses`}><button onClick={() => deleteStudent(student.id)}>Unenroll</button>
+                    </Link></table>
+                    
                 );
             })}
             <Link to={`/newstudent`}>

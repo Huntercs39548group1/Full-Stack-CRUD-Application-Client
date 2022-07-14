@@ -17,3 +17,7 @@ code {
   height: 250px;
   padding: 15px;
 }
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
