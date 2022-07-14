@@ -18,18 +18,19 @@ Team members:
 ### This project include following features.
 1.  Able to navigate with narbar to all campuss and all students
 
-![image](https://im3.ezgif.com/tmp/ezgif-3-6471fd756d.gif)
+![ezgif-4-0e220f5c18](https://user-images.githubusercontent.com/56648878/178885037-26622695-d4ff-4542-9770-6e3345b2decb.gif)
 
-![image](https://im3.ezgif.com/tmp/ezgif-3-b35a9d8aa7.gif)
 
-2.  Able to edit campuses
+2.  In All campuses panel you can delete, add new campus and navigate to single campus page.
 
-![image](https://im3.ezgif.com/tmp/ezgif-3-1cad27fc77.gif)
+![ezgif-4-824bb8b350](https://user-images.githubusercontent.com/56648878/178885239-9bfdb240-66c3-4c00-97ff-f9374e27438e.gif)
 
-3.  Able to delete campus
+3.  In single campus page you can edit, delete campus, edit campus and navigate with enrolled student page.
 
-![image](https://im3.ezgif.com/tmp/ezgif-3-bd945ac614.gif)
+![ezgif-4-682b6feef3](https://user-images.githubusercontent.com/56648878/178885528-221ae592-4627-47ce-bbab-bf1ca5d144f8.gif)
 
-4.  Able to add campus
 
-![image](https://im3.ezgif.com/tmp/ezgif-3-165ebf04f6.gif)
+4.  In student page, you can edit, and delete student.
+
+![ezgif-4-3d6eaade1c](https://user-images.githubusercontent.com/56648878/178885735-165d738c-a7d9-4781-91a3-2cffa6f76048.gif)
+
