@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 // Take in props data to construct the component
 const CampusView = (props) => {
     const { campus } = props;
-    const { deleteCampus } = props;
+    const { deleteCampus, deleteStudent } = props;
 
     let noStudent = () => {
         if (campus.students.length === 0) {
@@ -21,11 +21,16 @@ const CampusView = (props) => {
     };
     let image = (college) => {
         if (college.imageUrl !== "No URL provided") {
-          return (
-            <img src={college.imageUrl} alt="Campus" width="500" height="300"/>
-          );
+            return (
+                <img
+                    src={college.imageUrl}
+                    alt="Campus"
+                    width="500"
+                    height="300"
+                />
+            );
         }
-      }
+    };
     // Render a single Campus view with list of its students
     return (
         <div>
@@ -51,7 +56,11 @@ const CampusView = (props) => {
                         <Link to={`/student/${student.id}`}>
                             <h2>{name}</h2>
                         </Link>
-                        <button>Unenroll</button>
+                        <Link to={`/campuses`}>
+                            <button onClick={() => deleteStudent(student.id)}>
+                                Unenroll
+                            </button>
+                        </Link>
                     </div>
                 );
             })}
